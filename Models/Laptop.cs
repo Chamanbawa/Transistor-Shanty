@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Transistor_Shanty.Data;
+using static Transistor_Shanty.Data.Database;
 
 namespace Transistor_Shanty.Models
 {
@@ -12,7 +14,7 @@ namespace Transistor_Shanty.Models
         }
 
         private string _model;
-        public string Model
+        public string ModelName
         {
             get
             {
@@ -48,24 +50,24 @@ namespace Transistor_Shanty.Models
 
         }
         private int _quantity;
+      
+
         public int Quantity
         {
             get { return _quantity; }
             set { _quantity = value; }
         }
 
-        private string _type;
-        public string Type
-        {
-            get { return _type; }
-            set { _type = value; }
-        }
 
-        public Laptop(Brand brand,string model, int price, DateTime year, int quantity, string type)
+        public Laptoptype Type { get; set; }
+
+
+
+        public Laptop(Brand brand,string model, int price, DateTime year, int quantity, Laptoptype type)
         {
             _id++;
             Brand = brand;
-            Model = model;
+            ModelName = model;
             Price = price;
             Year = year;
             Quantity = quantity;
@@ -74,7 +76,6 @@ namespace Transistor_Shanty.Models
 
         }
 
-
-
+      
     }
 }

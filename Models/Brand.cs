@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Transistor_Shanty.Models
 {
@@ -18,11 +19,18 @@ namespace Transistor_Shanty.Models
             set { _name = value; }
 
         }
-        private HashSet<Laptop> _laptops = new HashSet<Laptop>();
+        public Laptop Laptop { get; set; }
+
+
+        public List<Laptop> Laptops = new List<Laptop>();
 
         public void AddLaptop(Laptop laptop)
         {
-            _laptops.Add(laptop);
+            Laptops.Add(laptop);
+        }
+      public List<Laptop> GetLaptops()
+        {
+            return Laptops.ToList();
         }
 
 
@@ -31,6 +39,10 @@ namespace Transistor_Shanty.Models
 
             _id++;
             Name = name;
+        }
+        public Brand()
+        {
+
         }
 
 
